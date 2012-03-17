@@ -1,0 +1,12 @@
+<% title "Asset" %>
+
+<p>
+  <strong>User:</strong>
+  <%= @asset.user_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_asset_path(@asset) %> |
+  <%= link_to "Destroy", @asset, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", assets_path %>
+</p>

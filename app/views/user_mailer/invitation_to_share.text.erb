@@ -1,0 +1,12 @@
+Hey,
+
+<%= @shared_folder.user.name %> has shared the "<%= @shared_folder.folder.name %>" folder on ShareBox.
+
+Message from <%= @shared_folder.user.name %>:
+"<%= @shared_folder.message %>"
+
+You can now login at <%= new_user_session_url %> and view the folder if you have an account already. If you don't have one, you can sign up here at <%= new_user_registration_url %>
+
+Have fun,
+
+ShareBox

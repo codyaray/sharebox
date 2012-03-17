@@ -1,0 +1,252 @@
+body {
+  background-color: #EFEFEF;
+  font-family: "Lucida Grande","Verdana","Arial","Bitstream Vera Sans",sans-serif;
+  font-size: 14px;
+}
+
+.header_wrapper {
+  width: 880px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.logo a {
+  color: #338DCF;
+  float: left;
+  font-size: 48px;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px #FFFFFF;
+  text-decoration: none;
+}
+
+a img {
+  border: none;
+}
+
+a {
+  color: #0000FF;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+#container {
+  width: 800px;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 20px 40px;
+  border: solid 1px #BFBFBF;
+}
+
+#login_user_status {
+  float: right;
+}
+
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+.error_messages {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+.error_messages h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+.error_messages p {
+  margin: 8px 10px;
+}
+
+.error_messages ul {
+  margin: 0;
+}
+
+.asset_list_header, .asset_list, .asset_details {
+	width:800px;
+	font-weight:bold;
+	font-size:12px;
+	overflow:hidden;
+
+}
+.file_name_header, .file_name {
+	width:350px;
+	float:left;
+	padding-left:20px;
+}
+.file_size_header, .file_size {
+	width:100px;
+	float:left;
+}
+.file_last_updated_header, .file_last_updated {
+	width:150px;
+	float:left;
+}
+.asset_list {
+	padding:20px 0;
+}
+.asset_details {
+	font-weight:normal;
+	height:25px;
+	line-height:25px;
+	border:1px solid #FFF;
+	width:790px;
+	color:#4F4F4F;
+}
+
+#menu {
+  width: 800px;
+  padding: 0 20px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+#menu ul {
+  padding: 0;
+  margin: 0;
+}
+
+#menu ul li {
+  list-style: none;
+  float: left;
+  display: block;
+  margin-right: 10px;
+}
+
+#menu ul li a, #menu ul li a:visited {
+  display: block;
+  padding: 0 15px;
+  line-height: 25px;
+  text-decoration: none;
+  color: #45759F;
+  background: #EFF8FF;
+  border: 1px solid #CFEBFF;
+}
+
+#menu ul li a:hover, #menu ul li a:active {
+  background: #DFF1FF;
+  border: 1px solid #AFDDFF;
+}
+
+.folder  {
+	background:url("../images/folder.png") no-repeat scroll left center transparent;
+}
+
+.file {
+	background:url("../images/file.png") no-repeat scroll left center transparent;
+}
+.folder.asset_details:hover, .shared_folder.asset_details:hover, .file.asset_details:hover  {
+	border:1px solid #DFDFDF;
+}
+.folder.asset_details:hover  {
+	background:url("../images/folder.png") no-repeat scroll left center #EFEFEF;
+}
+.shared_folder  {
+	background:url("../images/shared_folder.png") no-repeat scroll left center transparent;
+}
+.shared_folder.asset_details:hover  {
+	background:url("../images/shared_folder.png") no-repeat scroll left center #EFEFEF;
+}
+.file.asset_details:hover  {
+	background:url("../images/file.png") no-repeat scroll left center #EFEFEF;
+}
+
+.breadcrumbs {
+  margin: 10px 0;
+  font-weight: bold;
+}
+.breadcrumbs a {
+  color: #1D96EF;
+  text-decoration: none;
+}
+
+.actions {
+	float:right;
+	font-size:11px;
+}
+.share, .rename, .download, .delete{
+	float:left;	
+}
+.asset_details .share a,.asset_details .rename a,.asset_details .download a,.asset_details .delete a{
+	border: 1px solid #CFE9FF;
+    font-size: 11px;
+    margin-left: 5px;
+    padding: 0 2px;
+}
+.asset_details .share a:hover,.asset_details .rename a:hover,.asset_details .download a:hover,.asset_details .delete a:hover{
+	border:1px solid #8FCDFF;
+}
+
+.asset_details .delete a{
+	color:#BF0B12;
+	border:1px solid #FFCFD1;
+}
+
+.asset_details .delete a:hover{
+	color:#BF0B12;
+	border:1px solid #FF8F93;
+}
+
+.ui-button-text-only .ui-button-text {
+  font-size: 14pt;
+  padding: 3px 10px !important;
+}
+
+.share .ui-button-text-only .ui-button-text {
+  padding: 0 2px !important;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+#invitation_form {
+  font-size: 14px;
+}
+
+#invitation_form label {
+  font-weight: bold;
+}
+
+#invitation_form input.text {
+  width: 480px;
+  height: 20px;
+  font-size: 12px;
+  color: #7F7F7F;
+}
+
+#invitation_form textarea {
+  width: 480px;
+  height: 100px;
+  font-size: 12px;
+  color: #7F7F7F;
+}

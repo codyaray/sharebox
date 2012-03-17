@@ -1,0 +1,87 @@
+<% unless user_signed_in? %>
+  <h1>Welcome to ShareBox</h1>
+  <p>File sharing you can't ignore.</p>
+
+<% else %>
+
+  <div id="menu">
+    <% unless @is_this_folder_being_shared %>
+      <ul id="top_menu">
+        <% if @current_folder %>
+        <li><%= link_to "Upload", new_sub_file_path(@current_folder) %></li>
+        <li><%= link_to "New Folder", new_sub_folder_path(@current_folder) %></li>
+        <% else %>
+        <li><%= link_to "Upload", new_asset_path %></li>
+        <li><%= link_to "New Folder", new_folder_path %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <h3>This folder is being shared to you by <%= @current_folder.user.name %></h3>
+    <% end %>
+  </div>
+  <%= render :partial => "breadcrumbs" %>
+  <div class="asset_list_header">
+    <div class="file_name_header">File Name</div>
+    <div class="file_size_header">Size</div>
+    <div class="file_last_updated_header">Modified</div>
+  </div>
+  <div class="asset_list">
+    <!-- Listing Folders -->
+    <% @being_shared_folders.each do |folder| %>
+      <div class="asset_details <%= folder.shared? ? 'shared_folder' : 'folder' %>" id="folder_<%= folder.id %>">
+        <div class="file_name"><%= link_to folder.name, browse_path(folder) %></div>
+        <div class="file_size"> - </div>
+        <div class="file_last_updated"> - </div>
+      </div>
+    <% end%>
+    
+    <!-- Listing Folders -->
+    <% @folders.each do |folder| %>
+      <div class="asset_details <%= folder.shared? ? 'shared_folder' : 'folder' %>" id="folder_<%= folder.id %>">
+        <div class="file_name"><%= link_to folder.name, browse_path(folder) %></div>
+        <div class="file_size"> - </div>
+        <div class="file_last_updated"> - </div>
+        <div class="actions">
+          <div class="share">
+            <%= link_to "Share", "#", :folder_id => folder.id, :folder_name => folder.name unless @is_this_folder_being_shared %>
+          </div>
+          <div class="rename">
+            <%= link_to "Rename", rename_folder_path(folder) unless @is_this_folder_being_shared %>
+          </div>
+          <div class="delete">
+            <%= link_to "Delete", folder,
+                    :confirm => 'Are you sure to delete the folder and all of its contents?', :method => :delete unless @is_this_folder_being_shared %>
+          </div>
+        </div>
+      </div>
+    <% end%>
+
+    <!-- Listing Files -->
+    <% @assets.each do |asset| %>
+      <div class="asset_details file">
+        <div class="file_name"><%= link_to asset.file_name, download_url(asset), :target => :_blank %></div>
+        <div class="file_size"><%= number_to_human_size(asset.file_size, :precision => 2) %></div>
+        <div class="file_last_updated"><%= asset.uploaded_file_updated_at %></div>
+        <div class="actions">
+          <div class="download">
+            <%= link_to "Download", download_url(asset) %>
+          </div>
+          <div class="delete">
+            <%= link_to "Delete", asset, :confirm => 'Are you sure?', :method => :delete unless @is_this_folder_being_shared %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="invitation_form" title="Invite others to share" style="display:none">
+    <% form_tag '/home/share' do -%>
+      <label for="email_addresses">Enter recipient email addresses here</label><br />
+      <%= text_field_tag 'email_addresses', "", :class => 'text ui-widget-content ui-corner-all' %>
+      <br /><br />
+      <label for="message">Optional message</label><br />
+      <%= text_area_tag 'message', "", :class => 'text ui-widget-content ui-corner-all' %>
+      <%= hidden_field_tag "folder_id" %>
+    <% end -%>
+  </div>
+<% end %>

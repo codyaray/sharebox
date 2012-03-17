@@ -1,0 +1,17 @@
+<%= form_for @folder do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.hidden_field :parent_id %>
+  </p>
+  <p>
+  <% if @folder.new_record? %>
+    <%= f.submit "Create Folder" %>
+  <% else %>
+    <%= f.submit "Rename Folder" %>
+  <% end %>
+  </p>
+<% end %>

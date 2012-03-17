@@ -1,0 +1,17 @@
+<% title "Assets" %>
+
+<table>
+  <tr>
+    <th>Uploaded Files</th>
+  </tr>
+  <% for asset in @assets %>
+    <tr>
+      <td><%= link_to asset.file_name, download_url(asset), :target => :_blank %></td>
+      <td><%= link_to "Show", asset %></td>
+      <td><%= link_to "Edit", edit_asset_path(asset) %></td>
+      <td><%= link_to "Destroy", asset, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Asset", new_asset_path %></p>

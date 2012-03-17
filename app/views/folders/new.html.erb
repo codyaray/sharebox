@@ -1,0 +1,12 @@
+<% title "New Folder" %>
+<%= render :partial => "home/breadcrumbs" %>
+
+<%= render 'form' %>
+
+<p>
+<% if @folder.parent %>
+  <%= link_to "Back to '#{@folder.parent.name}' Folder", browse_path(@folder.parent) %>
+<% else %>
+  <%= link_to "Back to Home Page", folders_path %>
+<% end %>
+</p>

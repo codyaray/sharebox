@@ -1,0 +1,20 @@
+<% title "Folder" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @folder.name %>
+</p>
+<p>
+  <strong>Parent:</strong>
+  <%= @folder.parent_id %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @folder.user_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_folder_path(@folder) %> |
+  <%= link_to "Destroy", @folder, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", folders_path %>
+</p>

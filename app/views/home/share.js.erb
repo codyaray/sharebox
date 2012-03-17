@@ -1,0 +1,14 @@
+// closing the dialog box
+$("#invitation_form").dialog("close");
+
+// make sure we don't display the flash notice more than once
+$("#flash_notice").remove();
+
+// showing a flash message
+$("#container").prepend("<div id=\"flash_notice\">Successfully shared the folder</div>");
+
+// removing the CSS class 'folder'
+$("#folder_<%= params[:folder_id] %>").removeClass("folder");
+
+// adding the CSS class 'shared_folder'
+$("#folder_<%= params[:folder_id] %>").addClass("shared_folder");
